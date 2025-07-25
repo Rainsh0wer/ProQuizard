@@ -10,5 +10,10 @@ namespace ProjectQuizard.Views.LoginRegister
             InitializeComponent();
             DataContext = viewModel;
         }
+
+        public LoginWindow()
+        {
+            InitializeComponent();
+        }
     }
 }

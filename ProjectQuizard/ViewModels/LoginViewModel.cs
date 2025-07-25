@@ -2,6 +2,7 @@ using ProjectQuizard.Helpers;
 using ProjectQuizard.Services;
 using ProjectQuizard.Views.Student;
 using ProjectQuizard.Views.Teacher;
+using ProjectQuizard.Views.LoginRegister;
 using System.ComponentModel.DataAnnotations;
 using System.Windows;
 using System.Windows.Input;

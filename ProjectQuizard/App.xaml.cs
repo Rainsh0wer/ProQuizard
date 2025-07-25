@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using ProjectQuizard.Models;
 using ProjectQuizard.Services;
 using ProjectQuizard.Views.LoginRegister;
+using ProjectQuizard.ViewModels;
 using ProjectQuizard.Helpers;
 using System.Windows;
 using Microsoft.EntityFrameworkCore;

@@ -24,11 +24,7 @@
         <!-- Left Side - Branding -->
         <Grid Grid.Column="0" Background="{DynamicResource MaterialDesignDarkBackground}">
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="50">
-                <materialDesign:PackIcon Kind="QuestionAnswerOutline" 
-                                       Foreground="White" 
-                                       Width="100" 
-                                       Height="100" 
-                                       Margin="0,0,0,30"/>
+               
                 <TextBlock Text="Quizard" 
                           FontSize="48" 
                           FontWeight="Bold" 
