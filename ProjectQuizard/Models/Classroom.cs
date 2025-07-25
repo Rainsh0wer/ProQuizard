@@ -1,17 +1,25 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace ProjectQuizard.Models;
 
 public partial class Classroom
 {
-    public int ClassId { get; set; }
+    public int ClassroomId { get; set; }
 
     public string ClassName { get; set; } = null!;
 
     public int TeacherId { get; set; }
 
+    public string? ClassCode { get; set; }
+
     public DateTime? CreatedAt { get; set; }
+
+    public int ClassId
+    {
+        get => ClassroomId;
+        set => ClassroomId = value;
+    }
 
     public virtual ICollection<Enrollment> Enrollments { get; set; } = new List<Enrollment>();
 

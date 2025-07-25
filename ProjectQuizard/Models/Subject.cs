@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace ProjectQuizard.Models;
@@ -12,6 +12,12 @@ public partial class Subject
     public string? Description { get; set; }
 
     public DateTime? CreatedAt { get; set; }
+
+    public string SubjectName
+    {
+        get => Name;
+        set => Name = value;
+    }
 
     public virtual ICollection<Quiz> Quizzes { get; set; } = new List<Quiz>();
 }

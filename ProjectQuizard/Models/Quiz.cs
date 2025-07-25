@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace ProjectQuizard.Models;
@@ -18,6 +18,9 @@ public partial class Quiz
     public DateTime? CreatedAt { get; set; }
 
     public bool? IsPublic { get; set; }
+
+    public DateTime? UpdatedAt { get; set; }
+    public bool IsActive { get; set; }
 
     public virtual User CreatedByNavigation { get; set; } = null!;
 
