@@ -89,7 +89,7 @@ namespace ProjectQuizard.Services
                 }
             }
 
-            studentQuiz.Score = totalQuestions > 0 ? (decimal)correctAnswers / totalQuestions * 100 : 0;
+            studentQuiz.Score = totalQuestions > 0 ? (double)((decimal)correctAnswers / totalQuestions * 100) : 0;
             studentQuiz.EndTime = DateTime.UtcNow;
             studentQuiz.IsCompleted = true;
 

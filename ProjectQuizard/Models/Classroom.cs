@@ -15,6 +15,12 @@ public partial class Classroom
 
     public DateTime? CreatedAt { get; set; }
 
+    public int ClassId
+    {
+        get => ClassroomId;
+        set => ClassroomId = value;
+    }
+
     public virtual ICollection<Enrollment> Enrollments { get; set; } = new List<Enrollment>();
 
     public virtual ICollection<QuizAssignment> QuizAssignments { get; set; } = new List<QuizAssignment>();
