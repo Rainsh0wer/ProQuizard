@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace ProjectQuizard.Models;
@@ -16,6 +16,18 @@ public partial class StudentQuiz
     public DateTime? FinishedAt { get; set; }
 
     public double? Score { get; set; }
+
+    public DateTime? StartTime
+    {
+        get => StartedAt;
+        set => StartedAt = value;
+    }
+    public DateTime? EndTime
+    {
+        get => FinishedAt;
+        set => FinishedAt = value;
+    }
+    public bool IsCompleted { get; set; }
 
     public virtual Quiz Quiz { get; set; } = null!;
 

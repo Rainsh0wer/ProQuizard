@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace ProjectQuizard.Models;
@@ -16,6 +16,13 @@ public partial class Question
     public string? Explanation { get; set; }
 
     public DateTime? CreatedAt { get; set; }
+
+    public string QuestionText
+    {
+        get => Content;
+        set => Content = value;
+    }
+    public int QuestionOrder { get; set; }
 
     public virtual ICollection<QuestionOption> QuestionOptions { get; set; } = new List<QuestionOption>();
 
