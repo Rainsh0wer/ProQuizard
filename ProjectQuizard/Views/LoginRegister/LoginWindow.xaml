@@ -7,6 +7,9 @@
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         Background="White">
+    <Window.Resources>
+        <local:StringNullOrEmptyToVisibilityConverter x:Key="StringNullOrEmptyToVisibilityConverter" />
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -60,17 +63,32 @@
                               FontSize="12"/>
                 </Border>
 
-                <!-- Username Field -->
-                <TextBox PlaceholderText="Username"
-                        Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
-                        Margin="0,0,0,20"
-                        FontSize="16"/>
+                <!-- Username Field with Watermark -->
+                <Grid Margin="0,0,0,20">
+                    <TextBox x:Name="UsernameBox"
+                             Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
+                             FontSize="16"/>
+                    <TextBlock Text="Username" 
+                               Foreground="Gray" 
+                               Margin="5,0,0,0"
+                               VerticalAlignment="Center"
+                               IsHitTestVisible="False"
+                               FontSize="16"
+                               Visibility="{Binding Text, ElementName=UsernameBox, Converter={StaticResource StringNullOrEmptyToVisibilityConverter}}"/>
+                </Grid>
 
-                <!-- Password Field -->
-                <PasswordBox x:Name="PasswordBox"
-                            Tag="Password"
-                            Margin="0,0,0,30"
-                            FontSize="16"/>
+                <!-- Password Field with Watermark -->
+                <Grid Margin="0,0,0,30">
+                    <PasswordBox x:Name="PasswordBox"
+                                 FontSize="16"/>
+                    <TextBlock Text="Password" 
+                               Foreground="Gray" 
+                               Margin="5,0,0,0"
+                               VerticalAlignment="Center"
+                               IsHitTestVisible="False"
+                               FontSize="16"
+                               Visibility="{Binding Password, ElementName=PasswordBox, Converter={StaticResource StringNullOrEmptyToVisibilityConverter}}"/>
+                </Grid>
 
                 <!-- Login Button -->
                 <Button Content="Sign In"

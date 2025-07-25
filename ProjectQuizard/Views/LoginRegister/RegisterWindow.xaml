@@ -7,6 +7,9 @@
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         Background="White">
+    <Window.Resources>
+        <local:StringNullOrEmptyToVisibilityConverter x:Key="StringNullOrEmptyToVisibilityConverter" />
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -16,7 +19,6 @@
         <!-- Left Side - Branding -->
         <Grid Grid.Column="0" Background="#2D2D30">
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="50">
-                <!-- Thay thế icon bằng TextBlock -->
                 <TextBlock Text="👤" FontSize="72" HorizontalAlignment="Center" Margin="0,0,0,30"/>
                 <TextBlock Text="Join Quizard" 
                           FontSize="42" 
@@ -63,23 +65,47 @@
                                   FontSize="12"/>
                     </Border>
 
-                    <!-- Full Name Field -->
-                    <TextBox PlaceholderText="Full Name"
-                            Text="{Binding FullName, UpdateSourceTrigger=PropertyChanged}"
-                            Margin="0,0,0,15"
-                            FontSize="14"/>
+                    <!-- Full Name Field with Watermark -->
+                    <Grid Margin="0,0,0,15">
+                        <TextBox x:Name="FullNameBox"
+                                Text="{Binding FullName, UpdateSourceTrigger=PropertyChanged}"
+                                FontSize="14"/>
+                        <TextBlock Text="Full Name" 
+                                   Foreground="Gray" 
+                                   Margin="5,0,0,0"
+                                   VerticalAlignment="Center"
+                                   IsHitTestVisible="False"
+                                   FontSize="14"
+                                   Visibility="{Binding Text, ElementName=FullNameBox, Converter={StaticResource StringNullOrEmptyToVisibilityConverter}}"/>
+                    </Grid>
 
-                    <!-- Username Field -->
-                    <TextBox PlaceholderText="Username"
-                            Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
-                            Margin="0,0,0,15"
-                            FontSize="14"/>
+                    <!-- Username Field with Watermark -->
+                    <Grid Margin="0,0,0,15">
+                        <TextBox x:Name="UsernameBox"
+                                Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
+                                FontSize="14"/>
+                        <TextBlock Text="Username" 
+                                   Foreground="Gray" 
+                                   Margin="5,0,0,0"
+                                   VerticalAlignment="Center"
+                                   IsHitTestVisible="False"
+                                   FontSize="14"
+                                   Visibility="{Binding Text, ElementName=UsernameBox, Converter={StaticResource StringNullOrEmptyToVisibilityConverter}}"/>
+                    </Grid>
 
-                    <!-- Email Field -->
-                    <TextBox PlaceholderText="Email Address"
-                            Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}"
-                            Margin="0,0,0,15"
-                            FontSize="14"/>
+                    <!-- Email Field with Watermark -->
+                    <Grid Margin="0,0,0,15">
+                        <TextBox x:Name="EmailBox"
+                                Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}"
+                                FontSize="14"/>
+                        <TextBlock Text="Email Address" 
+                                   Foreground="Gray" 
+                                   Margin="5,0,0,0"
+                                   VerticalAlignment="Center"
+                                   IsHitTestVisible="False"
+                                   FontSize="14"
+                                   Visibility="{Binding Text, ElementName=EmailBox, Converter={StaticResource StringNullOrEmptyToVisibilityConverter}}"/>
+                    </Grid>
 
                     <!-- Role Selection -->
                     <ComboBox ItemsSource="{Binding Roles}"
@@ -87,17 +113,31 @@
                              Margin="0,0,0,15"
                              FontSize="14"/>
 
-                    <!-- Password Field -->
-                    <PasswordBox x:Name="PasswordBox"
-                                Tag="Password"
-                                Margin="0,0,0,15"
-                                FontSize="14"/>
+                    <!-- Password Field with Watermark -->
+                    <Grid Margin="0,0,0,15">
+                        <PasswordBox x:Name="PasswordBox"
+                                    FontSize="14"/>
+                        <TextBlock Text="Password" 
+                                   Foreground="Gray" 
+                                   Margin="5,0,0,0"
+                                   VerticalAlignment="Center"
+                                   IsHitTestVisible="False"
+                                   FontSize="14"
+                                   Visibility="{Binding Password, ElementName=PasswordBox, Converter={StaticResource StringNullOrEmptyToVisibilityConverter}}"/>
+                    </Grid>
 
-                    <!-- Confirm Password Field -->
-                    <PasswordBox x:Name="ConfirmPasswordBox"
-                                Tag="Confirm Password"
-                                Margin="0,0,0,25"
-                                FontSize="14"/>
+                    <!-- Confirm Password Field with Watermark -->
+                    <Grid Margin="0,0,0,25">
+                        <PasswordBox x:Name="ConfirmPasswordBox"
+                                    FontSize="14"/>
+                        <TextBlock Text="Confirm Password" 
+                                   Foreground="Gray" 
+                                   Margin="5,0,0,0"
+                                   VerticalAlignment="Center"
+                                   IsHitTestVisible="False"
+                                   FontSize="14"
+                                   Visibility="{Binding Password, ElementName=ConfirmPasswordBox, Converter={StaticResource StringNullOrEmptyToVisibilityConverter}}"/>
+                    </Grid>
 
                     <!-- Register Button -->
                     <Button Content="Create Account"
