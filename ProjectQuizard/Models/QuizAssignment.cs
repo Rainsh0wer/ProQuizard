@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace ProjectQuizard.Models;
@@ -16,6 +16,17 @@ public partial class QuizAssignment
     public DateTime? DueDate { get; set; }
 
     public DateTime? AssignedAt { get; set; }
+
+    public int? ClassroomId
+    {
+        get => ClassId;
+        set => ClassId = value;
+    }
+    public Classroom? Classroom
+    {
+        get => Class;
+        set => Class = value;
+    }
 
     public virtual Classroom? Class { get; set; }
 
