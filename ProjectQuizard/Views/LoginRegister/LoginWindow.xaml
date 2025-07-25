@@ -10,6 +10,7 @@
     <Window.Resources>
         <local:StringNullOrEmptyToVisibilityConverter x:Key="StringNullOrEmptyToVisibilityConverter" />
     </Window.Resources>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -63,6 +64,7 @@
                               FontSize="12"/>
                 </Border>
 
+
                 <!-- Username Field with Watermark -->
                 <Grid Margin="0,0,0,20">
                     <TextBox x:Name="UsernameBox"
@@ -89,6 +91,7 @@
                                FontSize="16"
                                Visibility="{Binding Password, ElementName=PasswordBox, Converter={StaticResource StringNullOrEmptyToVisibilityConverter}}"/>
                 </Grid>
+
 
                 <!-- Login Button -->
                 <Button Content="Sign In"

@@ -7,9 +7,11 @@
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         Background="White">
+
     <Window.Resources>
         <local:StringNullOrEmptyToVisibilityConverter x:Key="StringNullOrEmptyToVisibilityConverter" />
     </Window.Resources>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -19,6 +21,7 @@
         <!-- Left Side - Branding -->
         <Grid Grid.Column="0" Background="#2D2D30">
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="50">
+
                 <TextBlock Text="👤" FontSize="72" HorizontalAlignment="Center" Margin="0,0,0,30"/>
                 <TextBlock Text="Join Quizard" 
                           FontSize="42" 
@@ -65,6 +68,7 @@
                                   FontSize="12"/>
                     </Border>
 
+
                     <!-- Full Name Field with Watermark -->
                     <Grid Margin="0,0,0,15">
                         <TextBox x:Name="FullNameBox"
@@ -107,11 +111,13 @@
                                    Visibility="{Binding Text, ElementName=EmailBox, Converter={StaticResource StringNullOrEmptyToVisibilityConverter}}"/>
                     </Grid>
 
+
                     <!-- Role Selection -->
                     <ComboBox ItemsSource="{Binding Roles}"
                              SelectedItem="{Binding SelectedRole}"
                              Margin="0,0,0,15"
                              FontSize="14"/>
+
 
                     <!-- Password Field with Watermark -->
                     <Grid Margin="0,0,0,15">
